@@ -1,0 +1,5 @@
+package com.ksl.jms.sample.message.web.listener;
+
+public class SimpleMessageListener {
+
+}

@@ -11,6 +11,8 @@
  
 	<bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
 		<property name="brokerURL" value="tcp://localhost:61616" />
+		<property name="userName" value="admin" />
+		<property name="password" value="admin" />
 
 		
 	</bean>
@@ -22,12 +24,12 @@
 	</jms:listener-container> -->
  
 	<!-- To send JMS message -->
-	<bean id="jmsTemplate" class="com.ksl.jms.sample.message.producer.SimpleMessageSender">
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<property name="connectionFactory" ref="connectionFactory" />
 		<property name="defaultDestinationName" value="testQueue"/>
 	</bean>
 	
-	<bean id="simpleMessageSender" class="com.jcombat.sender.SimpleMessageSender">
+	<bean id="simpleMessageSender" class="com.ksl.jms.sample.message.producer.SimpleMessageSender">
 		<property name="jmsTemplate" ref="jmsTemplate" />
 	</bean>
 </beans>

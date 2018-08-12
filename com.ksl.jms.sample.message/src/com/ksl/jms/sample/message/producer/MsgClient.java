@@ -19,6 +19,7 @@ public class MsgClient {
  
 		// Create a session within the connection.
 		messageSender.sendMessage("hello");
+		System.out.println("Message sent");
 
 	}
 
