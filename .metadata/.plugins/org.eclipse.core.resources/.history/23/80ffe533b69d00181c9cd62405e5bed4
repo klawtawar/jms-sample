@@ -1,0 +1,5 @@
+package com.ksl.jms.sample.message.producer;
+
+public class SimpleMessageSender {
+
+}
