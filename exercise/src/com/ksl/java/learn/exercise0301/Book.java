@@ -7,6 +7,9 @@ public class Book {
 		this.title = title;
 	}
 
+	public Book() {
+		
+	}
     // your code (optional ~ you can avoid it. Depends on your implementation in Instructor)
 	
 	public void setTitle(String title) {

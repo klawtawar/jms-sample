@@ -1,5 +1,7 @@
 package com.ksl.java.learn.exercise0301;
 
+//import  com.ksl.java.learn.exercise0301.Book;
+
 public class Instructor {
     public long id;
 	public String name;
@@ -9,30 +11,47 @@ public class Instructor {
 	
 	public Instructor(long id, String name, String title, String department, Book[] books) {
 		// your code
+		this(id, name, title, department);
+		this.books = books;
 	}
 	
 	public Instructor(long id, String name, String title, String department) {
 		// your code
+		this(id, name, title);
+		this.department =  department;
 	}
 	
 	public Instructor(long id, String name, String title) {
 		// your code
+		this(id, name);
+		this.title =  title;
+		
 	}
 	
 	public Instructor(long id, String name) {
 		// your code
+		this.id = id;
+		this.name =  name;
 	}
 	
 	public String getMostRecentBookTitle() {
 		// your code
+		return books[books.length-1].getTitle();
+		
 	}
 	
 	public Book updateBook(int index, String title) {
 		// your code
+		Book oldbook = new Book(books[index].getTitle());
+		books[index].setTitle(title);
+		return oldbook;
 	}
 	
 	public Book updateBook(int index, Book book) {
 		// your code
+		Book oldbook =  books[index];
+		books[index] = book;
+		return oldbook;
 	}
 	
 	public static void main(String[] args) {
@@ -42,9 +61,10 @@ public class Instructor {
 		
 		Instructor instructor = new Instructor(101, "John", "Assistant Professor", "Computer Science", new Book[]{book1, book2, book3});
 		System.out.println(instructor.getMostRecentBookTitle());
-		System.out.println("old book title: " + instructor.updateBook(1, "Effective C#").getTitle());
+		System.out.println("old book title: " + instructor.updateBook(2, "Effective C#").getTitle());
 				
 		Book book4 = new Book("Introduction to Data Mining");
 		System.out.println("old book title: " + instructor.updateBook(1, book4).getTitle());
+		System.out.println(instructor.getMostRecentBookTitle());
 	}
 }
